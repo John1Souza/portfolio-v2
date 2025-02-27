@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
-import { poppins } from "./ui/fonts/font";
+import { fira_code, poppins } from "./ui/fonts/font";
 import "./globals.css";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -13,11 +16,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="pt-BR">
       <body
-        className={`${poppins.className} antialiased bg-slate-950`}
+        className={`${fira_code.className} antialiased flex flex-col items-center justify-between bg-slate-950 min-h-screen`}
       >
+        <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );

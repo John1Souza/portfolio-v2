@@ -3,6 +3,25 @@
 @theme {
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-size-step-1: 14px;
+  --font-size-step-2: 16px;
+  --font-size-step-3: 18px;
+  --font-size-step-4: 20px;
+  --font-size-step-5: 24px;
+  --font-size-step-6: 30px;
+  --font-size-step-7: 36px;
+  --font-size-step-8: 48px;
+  --font-size-step-9: 60px;
+
+  --line-height-step-1: 140%;
+  --line-height-step-2: 150%;
+  --line-height-step-3: 150%;
+  --line-height-step-4: 150%;
+  --line-height-step-5: 140%;
+  --line-height-step-6: 140%;
+  --line-height-step-7: 130%;
+  --line-height-step-8: 120%;
+  --line-height-step-9: 110%;
 }
 
 :root {
@@ -12,13 +31,115 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: ;
     --foreground: #ededed;
   }
 }
 
 body {
   color: var(--foreground);
-  /* background: var(--background); */
   font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+  font-size: var(--font-size-step-9);
+  line-height: var(--line-height-step-9);
+}
+
+h2 {
+  font-size: var(--font-size-step-8);
+  line-height: var(--line-height-step-8);
+}
+
+h3 {
+  font-size: var(--font-size-step-7);
+  line-height: var(--line-height-step-7);
+}
+
+h4 {
+  font-size: var(--font-size-step-6);
+  line-height: var(--line-height-step-6);
+}
+
+h5 {
+  font-size: var(--font-size-step-5);
+  line-height: var(--line-height-step-5);
+}
+
+h6 {
+  font-size: var(--font-size-step-4);
+  line-height: var(--line-height-step-4);
+}
+
+.text-step-1 {
+  font-size: var(--font-size-step-1);
+  line-height: var(--line-height-step-1);
+}
+
+.text-step-2 {
+  font-size: var(--font-size-step-2);
+  line-height: var(--line-height-step-2);
+}
+
+.text-step-3 {
+  font-size: var(--font-size-step-3);
+  line-height: var(--line-height-step-3);
+}
+
+.text-step-4 {
+  font-size: var(--font-size-step-4);
+  line-height: var(--line-height-step-4);
+}
+
+.text-step-5 {
+  font-size: var(--font-size-step-5);
+  line-height: var(--line-height-step-5);
+}
+
+.text-step-6 {
+  font-size: var(--font-size-step-6);
+  line-height: var(--line-height-step-6);
+}
+
+.text-step-7 {
+  font-size: var(--font-size-step-7);
+  line-height: var(--line-height-step-7);
+}
+
+.text-step-8 {
+  font-size: var(--font-size-step-8);
+  line-height: var(--line-height-step-8);
+}
+
+.text-step-9 {
+  font-size: var(--font-size-step-9);
+  line-height: var(--line-height-step-9);
+}
+.border-defautl {
+  border: 1px solid slategray;
+}
+.menu-items, .icons {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  border-right: 1px solid slategray;
+  border-bottom: 1px solid transparent;
+  padding: 0 16px 0 16px;
+}
+
+.menu-items:hover, .menu-buttom:hover {
+  cursor: pointer;
+  border-bottom: 2px solid #ffa400;
+}
+.active {
+ border-bottom: 2px solid #ffa400;
+}
+
+.menu-buttom {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  border-left: 1px solid slategray;
+  border-bottom: 1px solid transparent;
+  padding: 0 16px 0 16px;
 }
