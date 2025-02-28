@@ -37,8 +37,13 @@
 }
 
 body {
+  max-width: 1280px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 h1 {
@@ -118,6 +123,7 @@ h6 {
 .border-defautl {
   border: 1px solid slategray;
 }
+
 .menu-items, .icons {
   height: 100%;
   display: flex;
@@ -125,6 +131,14 @@ h6 {
   border-right: 1px solid slategray;
   border-bottom: 1px solid transparent;
   padding: 0 16px 0 16px;
+}
+.menu-items-mobile {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid slategray;
+  border-right: 1px solid transparent;
+  padding: 1rem;
 }
 
 .menu-items:hover, .menu-buttom:hover {
@@ -137,7 +151,6 @@ h6 {
 
 .menu-buttom {
   height: 100%;
-  display: flex;
   align-items: center;
   border-left: 1px solid slategray;
   border-bottom: 1px solid transparent;
