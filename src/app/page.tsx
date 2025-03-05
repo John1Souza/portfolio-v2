@@ -4,7 +4,7 @@ import SnakeGame from "./components/SnakeGame";
 
 export default function Home() {
   return (
-    <main className="w-full h-full flex items-center justify-between bg-slate-900 grow border-r border-solid border-r-slate-400 border-l border-l-slate-400 p-4 bg-slate-800/10 bg-clip-padding backdrop-filter backdrop-blur-sm grow mt-12">  
+    <main className="w-full h-full flex items-center justify-between bg-slate-900 grow p-4 bg-slate-800/10 bg-clip-padding backdrop-filter backdrop-blur-sm grow">  
       <section className="md:w-1/2 flex flex-col text-left gap-20">
         <div>
           <p className="text-slate-500">Hi all. I am</p>

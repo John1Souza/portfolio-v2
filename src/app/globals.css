@@ -44,6 +44,9 @@ body {
   align-items: center;
   margin: 0 auto;
   color: var(--foreground);
+  padding-top: 50px;
+  border-left: 1px solid slategray;
+  border-right: 1px solid slategray;
 }
 
 h1 {
