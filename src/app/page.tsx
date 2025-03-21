@@ -9,7 +9,7 @@ export default function Home() {
         <div>
           <p className="text-slate-500">Hi all. I am</p>
           <h1>Johnatas Souza</h1>
-          <h3 className="text-indigo-500 font-bold"> > Software Developer</h3>
+          <h3 className="text-indigo-500 font-bold"> Software Developer</h3>
         </div>
         <div>
           <p className="text-slate-500 hidden md:block"> // complete the game to continue</p>
