@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { fira_code, poppins } from "./ui/fonts/font";
+import { fira_code } from "./ui/fonts/font";
 import "./globals.css";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
