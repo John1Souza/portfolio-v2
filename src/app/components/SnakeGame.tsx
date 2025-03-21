@@ -227,8 +227,8 @@ export default function SnakeGame() {
     y: Math.floor(Math.random() * 20),
   });
   const [gameOver, setGameOver] = useState(false);
-  const [dx, setDx] = useState(0);  Direção horizontal
-    const [dy, setDy] = useState(0); Direção vertical
+  const [dx, setDx] = useState(0); // Direção horizontal
+    const [dy, setDy] = useState(0); // Direção vertical
   const [score, setScore] = useState(0); // Contador de pontos
   const lastDirection = useRef({ dx: 0, dy: 0 }); // Última direção válida
   const [speed, setSpeed] = useState(200); // Velocidade inicial da cobra (em ms)
