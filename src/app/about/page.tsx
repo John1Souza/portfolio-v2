@@ -10,6 +10,14 @@ interface WorkExperience {
 export default function About() {
     const workExperience: WorkExperience[]  = [
         {
+          title: "Software Developer",
+          company: "UI Tecnologia e Inovação",
+          location: "Sobradinho-DF, Brasil",
+          startDate: "Mar.2025",
+          endDate: "at the moment",
+          type: "Full Time"
+        },
+        {
             title: "IT intern",
             company: "Empresa Brasileira de Serviços Hospitalares (EBSERH)",
             location: "Brasília-DF, Brasil",
@@ -25,7 +33,8 @@ export default function About() {
             endDate: "Dec.2023",
             type: "Full Time"
         },
-        
+
+
     ]
     return (
         <div className="md:w-4/6 flex flex-col justify-center grow md:self-start py-16">
@@ -49,7 +58,7 @@ export default function About() {
                             <div className="flex items-center justify-between text-step-2 text-slate-400 flex-wrap">
                                 <div className="flex items-center justify-between gap-1 flex-wrap">
                                     <p className="flex gap-1 items-center">
-                                        <Image 
+                                        <Image
                                             src="/icons/building.svg"
                                             width={15}
                                             height={15}
@@ -59,7 +68,7 @@ export default function About() {
                                         {exp.company}
                                     </p>
                                     <p className="flex gap-1 items-center">
-                                        <Image 
+                                        <Image
                                             src="/icons/location.svg"
                                             width={20}
                                             height={20}
@@ -70,7 +79,7 @@ export default function About() {
                                     </p>
                                 </div>
                                 <p className="flex gap-1 items-center">
-                                    <Image 
+                                    <Image
                                         src="/icons/calendar.svg"
                                         width={15}
                                         height={15}
@@ -82,7 +91,7 @@ export default function About() {
                             </div>
                         </div>
                     ))
-                }               
+                }
             </div>
             <div className="flex flex-col p-4 gap-4">
                 <h1 className="text-step-7 text-indigo-500 font-bold">Education</h1>
