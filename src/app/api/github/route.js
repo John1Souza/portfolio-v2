@@ -5,7 +5,7 @@ export async function GET() {
   const userName = process.env.GITHUB_USER_NAME;
 
   try {
-    const response = await fetch(`https://api.github.com/users/${userName}/repos`, {
+    const response = await fetch(`https://api.github.com/users/${userName}/repos?page=1&per_page=100`, {
       headers: {
         'Authorization': `token ${token}`,
         'Accept': 'application/vnd.github.v3+json'
