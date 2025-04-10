@@ -96,7 +96,7 @@ export default function TechStack(){
     return (
         <section className="flex flex-col items-center justify-center w-full flex-1 p-4">
           <div className="flex flex-col justify-center items-start w-full grow">
-              <h3>My Tech Stack</h3>
+              <h1>My Tech Stack</h1>
               <p>Technologies I’ve been working with recently</p>
           </div>
           <div className="flex justify-center items-center grow flex-wrap gap-10">

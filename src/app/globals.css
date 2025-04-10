@@ -38,20 +38,21 @@
 
 body {
   max-width: 1280px;
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  flex: 1;
   margin: 0 auto;
   color: var(--foreground);
-  padding-top: 50px;
   border-left: 1px solid slategray;
   border-right: 1px solid slategray;
 }
 
 h1 {
-  font-size: var(--font-size-step-9);
-  line-height: var(--line-height-step-9);
+  font-size: var(--font-size-step-7);
+  color: #3F51B5;
+  font-weight: bold;
 }
 
 h2 {
@@ -158,4 +159,27 @@ h6 {
   border-left: 1px solid slategray;
   border-bottom: 1px solid transparent;
   padding: 0 16px 0 16px;
+}
+
+
+section::-webkit-scrollbar {
+  width: 8px;
+}
+
+section::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+section::-webkit-scrollbar-thumb {
+  background: #3f51b5;
+  border-radius: 4px;
+}
+
+section::-webkit-scrollbar-thumb:hover {
+  background: #32408f;
+}
+
+section {
+  scrollbar-width: thin;
+  scrollbar-color: #3f51b5 #f1f1f1;
 }
