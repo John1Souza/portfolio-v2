@@ -94,7 +94,7 @@ export default function TechStack(){
     ]
 
     return (
-        <section className="flex flex-col items-center justify-center w-full flex-1 p-4">
+        <section className="flex flex-col items-center justify-center w-full flex-1 p-4 pt-16">
           <div className="flex flex-col justify-center items-start w-full grow">
               <h1>My Tech Stack</h1>
               <p>Technologies I’ve been working with recently</p>
@@ -105,8 +105,8 @@ export default function TechStack(){
                 <div key={index} className="flex flex-col justify-center items-center gap-2 p-2">
                     <Image
                       src={tech.icon ? tech.icon : `/icons/${tech.iconName}.svg`}
-                      width={100}
-                      height={100}
+                      width={80}
+                      height={80}
                       alt={tech.name}
                     />
                   <p>{tech.name}</p>

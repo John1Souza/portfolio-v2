@@ -55,7 +55,7 @@ export default function Projects(){
   if (error) return <div>Error: {error}</div>;
     return (
         <section className="w-full min-h-0 h-full flex flex-col items-start justify-center gap-4 p-4 pt-16 bg-slate-900 text-white overflow-y-auto flex-1">
-              <div className="flex flex-col items-start justify-center gap-2 mb-4">
+              <div className="flex flex-col items-start justify-center gap-2 mb-4 w-full grow">
                 <h1>Projects</h1>
                 <p>Here are some of my projects:</p>
               </div>

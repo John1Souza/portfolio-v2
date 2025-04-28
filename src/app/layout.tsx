@@ -3,6 +3,7 @@ import { fira_code } from "./ui/fonts/font";
 import "./globals.css";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
+import InitialLoading from "./components/LoadingInicial";
 
 
 export const metadata: Metadata = {
@@ -21,6 +22,7 @@ export default function RootLayout({
         className={`${fira_code.className} antialiased bg-slate-950`}
       >
         <Header />
+        <InitialLoading />
         {children}
         <Footer />
       </body>

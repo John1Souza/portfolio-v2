@@ -3,10 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "npm run prepare:env:dev && next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prepare:env:dev": "cp environments/.env.development .env.development",
+    "prepare:env:prod": "cp environments/.env.production .env.production"
   },
   "dependencies": {
     "react": "^19.0.0",
