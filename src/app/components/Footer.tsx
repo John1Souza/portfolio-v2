@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Footer(){
     return (
-        <footer className="w-full h-[50px] flex align-center justify-between border border-solid border-slate-400 rounded-t-lg bg-slate-900 pr-4 pl-4">
+        <footer className="w-full h-[50px] max-w-[1280px] flex align-center justify-between border border-solid border-slate-400 rounded-t-lg bg-slate-900 pr-4 pl-4 fixed bottom-0 z-10 m-0 m-auto">
             <div className="h-full flex gap-8 items-center justify-center">
                 <h1 className="text-step-2 md:mr-16 mr-8">Find-me in:</h1>
                 <nav className="h-full flex items-center">

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 
-export default function LoadingInicial() {
+export default function LoadingRotas() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -18,7 +18,7 @@ export default function LoadingInicial() {
       <div className="absolute inset-0 bg-slate-950/80"></div>
       
       {/* Container com glassmorphism */}
-      <div className="h-full w-full relative p-8 rounded-2xl border border-slate-800 bg-slate-900/30 backdrop-blur-lg flex items-center justify-center">
+      <div className="flex items-center justify-center">
         <div className="text-center space-y-6">
           {/* Seu logo ou iniciais */}
           <div className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400">
@@ -31,7 +31,7 @@ export default function LoadingInicial() {
           </div>
           
           {/* Texto */}
-          <p className="text-slate-300">Preparando seu experiência...</p>
+          <p className="text-slate-300">Carregando ...</p>
         </div>
       </div>
     </div>

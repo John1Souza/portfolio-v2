@@ -8,14 +8,14 @@ interface WorkExperience {
     type: string;
 }
 export default function About() {
-    const workExperience: WorkExperience[]  = [
+    const workExperience: WorkExperience[] = [
         {
-          title: "Software Developer",
-          company: "UI Tecnologia e Inovação",
-          location: "Sobradinho-DF, Brasil",
-          startDate: "Mar.2025",
-          endDate: "at the moment",
-          type: "Full Time"
+            title: "Software Developer",
+            company: "UI Tecnologia e Inovação",
+            location: "Sobradinho-DF, Brasil",
+            startDate: "Mar.2025",
+            endDate: "at the moment",
+            type: "Full Time"
         },
         {
             title: "IT intern",
@@ -37,7 +37,7 @@ export default function About() {
 
     ]
     return (
-        <section className="w-full md:w-4/6 flex flex-col justify-center flex-1 md:self-start pt-12">
+        <section className="w-full md:w-4/6 flex flex-col justify-center flex-1 grow md:self-start p-4 overflow-y-auto">
             <div className="flex flex-col gap-4 p-4">
                 <h1>About Me</h1>
                 <p className="indent-4">
@@ -63,7 +63,7 @@ export default function About() {
                                             width={15}
                                             height={15}
                                             alt="building icon"
-                                            style={{filter: "invert(1)"}}
+                                            style={{ filter: "invert(1)" }}
                                         />
                                         {exp.company}
                                     </p>
@@ -73,7 +73,7 @@ export default function About() {
                                             width={20}
                                             height={20}
                                             alt="building icon"
-                                            style={{filter: "invert(1)"}}
+                                            style={{ filter: "invert(1)" }}
                                         />
                                         {exp.location}
                                     </p>
@@ -84,7 +84,7 @@ export default function About() {
                                         width={15}
                                         height={15}
                                         alt="building icon"
-                                        style={{filter: "invert(1)"}}
+                                        style={{ filter: "invert(1)" }}
                                     />
                                     {exp.startDate} - {exp.endDate}
                                 </p>

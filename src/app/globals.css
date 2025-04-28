@@ -47,6 +47,7 @@ body {
   color: var(--foreground);
   border-left: 1px solid slategray;
   border-right: 1px solid slategray;
+  padding: 50px 0 50px 0;
 }
 
 h1 {
@@ -182,4 +183,10 @@ section::-webkit-scrollbar-thumb:hover {
 section {
   scrollbar-width: thin;
   scrollbar-color: #3f51b5 #f1f1f1;
+}
+
+@keyframes progress {
+  0% { transform: translateX(-100%) scaleX(0.1); }
+  50% { transform: translateX(50%) scaleX(0.5); }
+  100% { transform: translateX(200%) scaleX(0.1); }
 }
