@@ -37,7 +37,7 @@ export default function About() {
 
     ]
     return (
-        <section className="w-full md:w-4/6 flex flex-col justify-center flex-1 grow md:self-start p-4 overflow-y-auto">
+        <section className="w-full md:w-4/6 max-h-full flex flex-col overflow-y-auto">
             <div className="flex flex-col gap-4 p-4">
                 <h1>About Me</h1>
                 <p className="indent-4">

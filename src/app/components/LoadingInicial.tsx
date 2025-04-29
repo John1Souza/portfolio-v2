@@ -31,7 +31,7 @@ export default function LoadingInicial() {
           </div>
           
           {/* Texto */}
-          <p className="text-slate-300">Preparando seu experiência...</p>
+          <p className="text-slate-300">Preparing your experience...</p>
         </div>
       </div>
     </div>

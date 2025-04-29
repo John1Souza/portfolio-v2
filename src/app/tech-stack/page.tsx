@@ -94,12 +94,12 @@ export default function TechStack(){
     ]
 
     return (
-        <section className="flex flex-col items-center justify-center w-full flex-1 p-4 overflow-hidden">
-          <div className="flex flex-col justify-center items-start w-full grow">
+        <section className="flex flex-col w-full max-h-full flex-1">
+          <div className="flex flex-col justify-center items-start w-full">
               <h1>My Tech Stack</h1>
               <p>Technologies I’ve been working with recently</p>
           </div>
-          <div className="flex justify-center items-center grow flex-wrap gap-10 pt-16">
+          <div className="flex justify-center items-center grow flex-wrap gap-10 pt-16 max-h-full overflow-y-auto">
             {
               techStack && techStack.map((tech, index) => (
                 <div key={index} className="flex flex-col justify-center items-center gap-2 p-2">
