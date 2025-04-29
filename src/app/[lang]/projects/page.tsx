@@ -1,4 +1,5 @@
 import Image from "next/image";
+
 export interface Repo {
   id: number;
   name: string;
@@ -9,6 +10,7 @@ export interface Repo {
 }
 
 export default async function Projects() {
+
   const projectsList = [
     "projeto_login_riot",
     "propertiesecommerce",

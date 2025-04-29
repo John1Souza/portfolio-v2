@@ -1,6 +1,10 @@
-import Image from "next/image"
+"use client";
+
+import Image from "next/image";
+import { useTranslation } from "react-i18next";
 
 export default function TechStack(){
+    const { t } = useTranslation();
     const techStack = [
         {
             name: "JavaScript",
@@ -96,8 +100,8 @@ export default function TechStack(){
     return (
         <section className="flex flex-col w-full max-h-full flex-1">
           <div className="flex flex-col justify-center items-start w-full">
-              <h1>My Tech Stack</h1>
-              <p>Technologies I’ve been working with recently</p>
+              <h1>{t('stack')}</h1>
+              <p>{t('stackdescription')}</p>
           </div>
           <div className="flex justify-center items-center grow flex-wrap gap-10 pt-16 max-h-full overflow-y-auto">
             {

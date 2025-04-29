@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { fira_code } from "./ui/fonts/font";
-import "./globals.css";
-import Footer from "./components/Footer";
-import Header from "./components/Header";
-import LoadingInicial from "./components/LoadingInicial";
-import { LanguageProvider } from "./contexts/LanguageContext";
+import { fira_code } from "../ui/fonts/font";
+import "../globals.css";
+import Footer from "../components/Footer";
+import LoadingInicial from "../components/LoadingInicial";
+import I18nProvider from "../providers/I18nProvider";
+import Header from "../components/Header";
 
 export const metadata: Metadata = {
   title: "Portfolio",
@@ -13,24 +13,27 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-  params
+  params: { lng }
 }: Readonly<{
   children: React.ReactNode;
-  params: { lang: string };
+  params: { lng: string };
 }>) {
   return (
-    <html lang="pt-BR">
+    <html lang={lng} suppressHydrationWarning>
+      <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+      </head>
       <body
         className={`${fira_code.className} antialiased bg-slate-950`}
       >
-        <LanguageProvider lng={params.lang}>
+        <I18nProvider lng={lng}>
           <Header />
           <LoadingInicial />
           <main className="w-full min-h-[calc(100vh-100px)] flex items-center justify-between bg-slate-900 p-4 bg-slate-800/10 bg-clip-padding backdrop-filter backdrop-blur-sm flex-1 grow">
             {children}
           </main>
           <Footer />
-        </LanguageProvider>
+        </I18nProvider>
       </body>
     </html>
   );

@@ -1,4 +1,8 @@
+"use client";
+
 import Image from "next/image";
+import { useTranslation } from "react-i18next";
+
 interface WorkExperience {
     title: string;
     company: string;
@@ -8,6 +12,8 @@ interface WorkExperience {
     type: string;
 }
 export default function About() {
+    const { t } = useTranslation();
+
     const workExperience: WorkExperience[] = [
         {
             title: "Software Developer",
@@ -39,13 +45,13 @@ export default function About() {
     return (
         <section className="w-full md:w-4/6 max-h-full flex flex-col overflow-y-auto">
             <div className="flex flex-col gap-4 p-4">
-                <h1>About Me</h1>
+                <h1>{t('about')}</h1>
                 <p className="indent-4">
-                    I am a software developer with a passion for web development. I have experience with JavaScript, TypeScript, React, and Java. I am always looking for new challenges and opportunities to learn.
+                    {t('aboutme')}
                 </p>
             </div>
             <div className="flex flex-col gap-4 p-4">
-                <h1>Work Experience</h1>
+                <h1>{t('workexperience')}</h1>
                 {
                     workExperience.map((exp, index) => (
                         <div key={index} className="border-b border-b-slate-400 pb-6">
@@ -94,9 +100,9 @@ export default function About() {
                 }
             </div>
             <div className="flex flex-col p-4 gap-4">
-                <h1>Education</h1>
+                <h1>{t('education')}</h1>
                 <p className="border-b border-b-slate-400 pb-6">
-                    Systems Analysis and Development - UniCesumar
+                    {t('educationdescription')}
                 </p>
             </div>
         </section>

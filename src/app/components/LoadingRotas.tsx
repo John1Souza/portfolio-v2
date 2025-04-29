@@ -1,8 +1,10 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { useTranslation } from "react-i18next";
 
 export default function LoadingRotas() {
+  const { t } = useTranslation();
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -31,7 +33,7 @@ export default function LoadingRotas() {
           </div>
           
           {/* Texto */}
-          <p className="text-slate-300">Loading...</p>
+          <p className="text-slate-300">{t('loadingrotas')}</p>
         </div>
       </div>
     </div>

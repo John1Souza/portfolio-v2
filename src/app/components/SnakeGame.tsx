@@ -1,8 +1,10 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import { useTranslation } from "react-i18next";
 
 export default function SnakeGame() {
+  const { t } = useTranslation();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [isPaused, setIsPaused] = useState(false);
   const [snake, setSnake] = useState([{ x: 10, y: 10 }]); // Estado inicial da cobra (centro da grade)
@@ -31,59 +33,15 @@ export default function SnakeGame() {
     setSpeed(200); // Reinicia a velocidade
   };
 
-  // Função para mover a cobra uma célula por vez
-  const moveSnake = () => {
-    if (gameOver || isPaused) return;
-
-    const newDx = lastDirection.current.dx;
-    const newDy = lastDirection.current.dy;
-
-    const head = { x: snake[0].x + newDx, y: snake[0].y + newDy };
-    
-    // Verifica colisão com bordas
-    if (head.x < 0 || head.x >= tileCount || head.y < 0 || head.y >= tileCount) {
-      setGameOver(true);
-      return;
-    }
-
-    // Verifica colisão com o corpo
-    for (let i = 1; i < snake.length; i++) {
-      if (head.x === snake[i].x && head.y === snake[i].y) {
-        setGameOver(true);
-        return;
-      }
-    }
-
-    // Verifica colisão com comida
-    if (head.x === food.x && head.y === food.y) {
-      setFood({
-        x: Math.floor(Math.random() * tileCount),
-        y: Math.floor(Math.random() * tileCount),
-      });
-      setScore(score + 1);
-
-      // Aumenta a velocidade a cada 5 pontos
-      if ((score + 1) % 5 === 0) {
-        setSpeed((prevSpeed) => Math.max(50, prevSpeed - 20)); // Aumenta a velocidade (diminui o intervalo)
-      }
-
-      // A cobra cresce
-      setSnake([head, ...snake]);
-    } else {
-      // Move a cobra, removendo o último segmento
-      setSnake([head, ...snake.slice(0, -1)]);
-    }
-  };
-
   // Capturar comandos do teclado para mudar a direção da cobra
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (gameOver) return;
-    
+
       const key = event.key.toLowerCase();
       let newDx = lastDirection.current.dx;
       let newDy = lastDirection.current.dy;
-    
+
       switch (key) {
         case 'w':
           if (lastDirection.current.dy === 0) {
@@ -116,13 +74,13 @@ export default function SnakeGame() {
           setIsPaused(false);
           return;
       }
-    
+
       // Atualiza a direção da cobra
       if (newDx !== lastDirection.current.dx || newDy !== lastDirection.current.dy) {
         lastDirection.current = { dx: newDx, dy: newDy };
       }
     };
- 
+
     document.addEventListener('keydown', handleKeyDown);
 
     return () => {
@@ -131,13 +89,53 @@ export default function SnakeGame() {
   }, [isPaused, gameOver]);
 
   // Efeito para mover a cobra automaticamente em intervalos regulares
+  const moveSnake = useCallback(() => {
+    if (gameOver || isPaused) return;
+    const newDx = lastDirection.current.dx;
+    const newDy = lastDirection.current.dy;
+    const head = {
+      x: snake[0].x + newDx,
+      y: snake[0].y + newDy
+    };
+  
+    // Colisão com as bordas
+    if (head.x < 0 || head.x >= tileCount || head.y < 0 || head.y >= tileCount) {
+      setGameOver(true);
+      return;
+    }
+  
+    // Colisão com o corpo
+    for (let i = 1; i < snake.length; i++) {
+      if (head.x === snake[i].x && head.y === snake[i].y) {
+        setGameOver(true);
+        return;
+      }
+    }
+  
+    // Comeu a comida
+    if (head.x === food.x && head.y === food.y) {
+      setFood({
+        x: Math.floor(Math.random() * tileCount),
+        y: Math.floor(Math.random() * tileCount)
+      });
+      setScore(prev => prev + 1);
+  
+      if ((score + 1) % 5 === 0) {
+        setSpeed(prev => Math.max(50, prev - 20));
+      }
+  
+      setSnake([head, ...snake]);
+    } else {
+      setSnake([head, ...snake.slice(0, -1)]);
+    }
+  }, [snake, food, score, gameOver, isPaused, tileCount]);
+  
   useEffect(() => {
-    const interval = setInterval(() => {
-      moveSnake();
-    }, speed); // Intervalo controlado pela velocidade
-
-    return () => clearInterval(interval);
-  }, [snake, gameOver, isPaused, speed]);
+    if (gameOver) return; 
+    const intervalId = setInterval(moveSnake, speed);
+    return () => clearInterval(intervalId);
+  }, [moveSnake, speed, gameOver]);
+  
 
   // Desenhar o jogo
   useEffect(() => {
@@ -184,7 +182,7 @@ export default function SnakeGame() {
   return (
     <div className="flex flex-col items-center justify-center bg-slate-800">
       <div className="py-4 px-2 rounded-lg shadow-lg">
-        <p className="text-indigo-200 text-xl mb-2">Score: {score}</p>
+        <p className="text-indigo-200 text-xl mb-2">{t('score')} {score}</p>
         <canvas
           ref={canvasRef}
           width={400}
@@ -197,14 +195,14 @@ export default function SnakeGame() {
           onClick={() => setIsPaused(!isPaused)}
           className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
         >
-          {isPaused ? 'Retomar' : 'Pausar'}
+          {isPaused ? t('resume') : t('pause')}
         </button>
         {gameOver && (
           <button
             onClick={resetGame}
             className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 transition"
           >
-            Reiniciar
+            {t('restart')}
           </button>
         )}
       </div>

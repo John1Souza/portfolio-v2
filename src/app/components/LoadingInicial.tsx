@@ -1,8 +1,10 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { useTranslation } from "react-i18next";
 
 export default function LoadingInicial() {
+  const { t } = useTranslation();
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -31,7 +33,7 @@ export default function LoadingInicial() {
           </div>
           
           {/* Texto */}
-          <p className="text-slate-300">Preparing your experience...</p>
+          <p className="text-slate-300">{t('loadinginicial')}</p>
         </div>
       </div>
     </div>

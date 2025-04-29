@@ -1,11 +1,16 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { useTranslation } from "react-i18next";
 
 export default function Footer(){
+    const { t } = useTranslation();
+
     return (
         <footer className="w-full h-[50px] max-w-[1280px] flex align-center justify-between border border-solid border-slate-400 rounded-t-lg bg-slate-900 pr-4 pl-4 fixed bottom-0 z-10 m-0 m-auto">
             <div className="h-full flex gap-8 items-center justify-center">
-                <h1 className="text-step-2 md:mr-16 mr-8">Find-me in:</h1>
+                <h1 className="text-step-2 md:mr-16 mr-8">{t('findmein')}</h1>
                 <nav className="h-full flex items-center">
                     <ul className="flex h-full border-l border-solid border-l-slate-400">
                         <li><Link className="icons" href="/"><Image src="/icons/x.svg" alt="x image" width={24} height={24}/></Link></li>
