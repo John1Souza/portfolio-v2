@@ -20,7 +20,7 @@ export default async function Projects() {
     "super-formulario",
     'contabilita'
   ];
-  const response = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/github`);
+  const response = await fetch(`${process.env.PRIVATE_SITE_URL}/api/github`);
   const data = await response.json();
   const pageRepos = data.filter((repo: Repo) => {
     return repo.has_pages && projectsList.includes(repo.name);
