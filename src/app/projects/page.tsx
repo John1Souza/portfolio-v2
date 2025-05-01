@@ -20,7 +20,14 @@ export default async function Projects() {
     "super-formulario",
     'contabilita'
   ];
-  const response = await fetch(`${process.env.PRIVATE_SITE_URL}/api/github`);
+  const response = await fetch('https://api.github.com/users/John1Souza/repos?page=1&per_page=100', {
+    headers: {
+      Authorization: `token ${process.env.PRIVATE_GITHUB_ACCESS_TOKEN}`,
+      Accept: 'application/vnd.github.v3+json',
+    },
+    // Opcional, mas útil para não usar cache
+    cache: 'no-store'
+  });
   const data = await response.json();
   const pageRepos = data.filter((repo: Repo) => {
     return repo.has_pages && projectsList.includes(repo.name);
