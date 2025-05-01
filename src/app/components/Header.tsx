@@ -20,6 +20,7 @@ export default function Header() {
         { name: t('headerabout'), href: '/about' },
         { name: t('headertechstack'), href: '/tech-stack' },
         { name: t('headerprojects'), href: '/projects' },
+        { name: t('headercontact'), href: '/contact' },
     ];
 
     const isActive = (href: string) => {
@@ -37,16 +38,17 @@ export default function Header() {
                 <nav className="hidden md:flex h-full items-center">
                     <ul className="flex flex-col md:flex-row h-full nth-1:border-l nth-1:border-solid nth-1:border-l-slate-400">
                         {
-                            navLinks.map((link, index) =>
-                            (
-                                <li key={index}>
-                                    <Link className={`h-full menu-items ${isActive(link.href)
-                                        ? 'active' : ''
-                                        }`} href={link.href} prefetch={true}>
-                                        {link.name}
-                                    </Link>
-                                </li>
-                            )
+                            navLinks.map((link, index) => {
+                                if (link.name !== t('headercontact')) {
+                                    return (<li key={index}>
+                                        <Link className={`h-full menu-items ${isActive(link.href)
+                                            ? 'active' : ''
+                                            }`} href={link.href} prefetch={true}>
+                                            {link.name}
+                                        </Link>
+                                    </li>)
+                                }
+                            }
                             )
                         }
                     </ul>
