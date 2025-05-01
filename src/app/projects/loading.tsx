@@ -1,4 +1,5 @@
-import LoadingRotas from "../../components/LoadingRotas";
+import LoadingRotas from "../components/LoadingRotas";
+
 
 export default function Loading() {
     return (

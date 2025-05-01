@@ -180,7 +180,7 @@ export default function SnakeGame() {
   }, [snake, food, gameOver]);
 
   return (
-    <div className="flex flex-col items-center justify-center bg-slate-800">
+    <div className="flex flex-col items-center md:justify-center bg-slate-800">
       <div className="py-4 px-2 rounded-lg shadow-lg">
         <p className="text-indigo-200 text-xl mb-2">{t('score')} {score}</p>
         <canvas

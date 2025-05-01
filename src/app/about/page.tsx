@@ -11,52 +11,52 @@ interface WorkExperience {
     endDate: string;
     type: string;
 }
+
 export default function About() {
     const { t } = useTranslation();
 
     const workExperience: WorkExperience[] = [
         {
-            title: "Software Developer",
-            company: "UI Tecnologia e Inovação",
-            location: "Sobradinho-DF, Brasil",
-            startDate: "Mar.2025",
-            endDate: "at the moment",
-            type: "Full Time"
+            title: t("workExperience.ui_tecnologia.title"),
+            company: t('workExperience.ui_tecnologia.company'),
+            location: t('workExperience.ui_tecnologia.location'),
+            startDate: t('dates.startDate'),
+            endDate: t('dates.endDate'),
+            type: t('workExperience.ui_tecnologia.type')
         },
         {
-            title: "IT intern",
-            company: "Empresa Brasileira de Serviços Hospitalares (EBSERH)",
-            location: "Brasília-DF, Brasil",
-            startDate: "Jan.2024",
-            endDate: "Feb.2025",
-            type: "Part Time"
+            title: t('workExperience.ebserh.title'),
+            company: t('workExperience.ebserh.company'),
+            location: t('workExperience.ebserh.location'),
+            startDate: t('dates.startDate'),
+            endDate: t('dates.endDate'),
+            type: t('workExperience.ebserh.type')
         },
         {
-            title: "Technical Advisor",
-            company: "Procuradoria Geral do Distrito Federal",
-            location: "Brasília-DF, Brasil",
-            startDate: "Jul.2018",
-            endDate: "Dec.2023",
-            type: "Full Time"
-        },
-
-
+            title: t('workExperience.pgdf.title'),
+            company: t('workExperience.pgdf.company'),
+            location: t('workExperience.pgdf.location'),
+            startDate: t('dates.startDate'),
+            endDate: t('dates.endDate'),
+            type: t('workExperience.pgdf.type')
+        }
     ]
+
     return (
         <section className="w-full md:w-4/6 max-h-full flex flex-col overflow-y-auto">
-            <div className="flex flex-col gap-4 p-4">
-                <h1>{t('about')}</h1>
-                <p className="indent-4">
+            <div className="flex flex-col gap-4">
+                <h3 className="font-bold text-indigo-500">{t('about')}</h3>
+                <p className="text-slate-500">
                     {t('aboutme')}
                 </p>
             </div>
-            <div className="flex flex-col gap-4 p-4">
-                <h1>{t('workexperience')}</h1>
+            <div className="flex flex-col gap-4">
+                <h3 className="font-bold text-indigo-500">{t('workexperienceTitle')}</h3>
                 {
                     workExperience.map((exp, index) => (
                         <div key={index} className="border-b border-b-slate-400 pb-6">
                             <div className="w-full flex items-center justify-between gap-4">
-                                <p className="text-step-4">
+                                <p className="text-step-4 text-indigo-300">
                                     {exp.title}
                                 </p>
                                 <span className="text-step-1 font-semibold text-[#018C0F] bg-[#D7FFE0] h-[20px] px-2 rounded-lg">{exp.type}</span>
@@ -99,9 +99,9 @@ export default function About() {
                     ))
                 }
             </div>
-            <div className="flex flex-col p-4 gap-4">
-                <h1>{t('education')}</h1>
-                <p className="border-b border-b-slate-400 pb-6">
+            <div className="flex flex-col gap-4">
+                <h3 className="font-bold text-indigo-500">{t('education')}</h3>
+                <p className="border-b border-b-slate-400 pb-6 text-indigo-200">
                     {t('educationdescription')}
                 </p>
             </div>

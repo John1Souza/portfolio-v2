@@ -1,9 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import { FiGithub, FiLinkedin, FiInstagram, FiMail, FiSend } from "react-icons/fi";
 
 export default function Contact() {
+  const { t } = useTranslation();
+
   const socialLinks = [
     {
       name: "GitHub",
@@ -23,30 +26,29 @@ export default function Contact() {
   ];
 
   return (
-    <section className="max-w-6xl mx-auto px-4 py-16">
+    <section className="max-w-6xl max-h-full mx-auto px-4 py-2">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="text-center mb-12"
+        className="text-center"
       >
-        <h1 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600 mb-4">
-          Vamos Conversar
-        </h1>
+        <h2 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600 mb-4 text-slate-500">
+          {t('letstalk')}
+        </h2>
         <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-          Estou disponível para oportunidades de trabalho, colaborações ou apenas uma conversa sobre tecnologia.
+          {t('talktext')}
         </p>
       </motion.div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-        {/* Seção de Redes Sociais */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="bg-gray-900 rounded-2xl p-8 shadow-xl"
+          className="bg-slate-900 rounded-2xl p-8 shadow-xl"
         >
-          <h2 className="text-2xl font-semibold mb-6 text-white">Minhas Redes</h2>
+          <h3 className="text-2xl font-semibold mb-6 text-indigo-500">{t('socialnetworks')}</h3>
           
           <div className="space-y-4">
             {socialLinks.map((link, index) => (
@@ -55,15 +57,15 @@ export default function Contact() {
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                whileHover={{ x: 5 }}
+                whileHover={{ scale: 1.02, x: 5 }}
+                
                 className="flex items-center gap-4 p-4 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors"
               >
                 <div className="p-3 bg-gray-700 rounded-full">
                   {link.icon}
                 </div>
                 <div>
-                  <h3 className="font-medium text-white">{link.name}</h3>
-                  <p className="text-sm text-gray-400">{link.url}</p>
+                  <h3 className="font-medium text-indigo-200">{link.name}</h3>
                 </div>
               </motion.a>
             ))}
@@ -75,8 +77,8 @@ export default function Contact() {
                 <FiMail className="text-blue-400 text-2xl" />
               </div>
               <div>
-                <h3 className="font-medium text-white">Email</h3>
-                <p className="text-gray-400">seuemail@exemplo.com</p>
+                <h3 className="font-medium text-indigo-200">Email</h3>
+                <p className="text-gray-400">johnatas018@gmail.com</p>
               </div>
             </div>
           </div>
@@ -89,55 +91,55 @@ export default function Contact() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="bg-gray-900 rounded-2xl p-8 shadow-xl"
         >
-          <h2 className="text-2xl font-semibold mb-6 text-white">Envie uma Mensagem</h2>
+          <h3 className="text-2xl font-semibold mb-6 text-indigo-500">{t('sendmessage')}</h3>
           
           <form className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-400 mb-2">
-                  Nome
+                  {t('name')}
                 </label>
                 <input
                   type="text"
                   id="name"
                   className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white"
-                  placeholder="Seu nome"
+                  placeholder={`${t('nameplaceholder')}`}
                 />
               </div>
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-gray-400 mb-2">
-                  Email
+                  {t('email')}
                 </label>
                 <input
                   type="email"
                   id="email"
                   className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white"
-                  placeholder="seu@email.com"
+                  placeholder={`${t('emailplaceholder')}`}
                 />
               </div>
             </div>
             
             <div>
               <label htmlFor="subject" className="block text-sm font-medium text-gray-400 mb-2">
-                Assunto
+                {t('subject')}
               </label>
               <input
                 type="text"
                 id="subject"
                 className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white"
-                placeholder="Sobre o que deseja falar?"
+                placeholder={`${t('subjectplaceholder')}`}
               />
             </div>
             
             <div>
               <label htmlFor="message" className="block text-sm font-medium text-gray-400 mb-2">
-                Mensagem
+                {t('message')}
               </label>
               <textarea
                 id="message"
                 rows={5}
                 className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white"
-                placeholder="Escreva sua mensagem aqui..."
+                placeholder={`${t('messageplaceholder')}`}
               ></textarea>
             </div>
             

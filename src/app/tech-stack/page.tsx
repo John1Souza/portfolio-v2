@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useTranslation } from "react-i18next";
 
-export default function TechStack(){
+export default function TechStack() {
     const { t } = useTranslation();
     const techStack = [
         {
@@ -98,22 +98,22 @@ export default function TechStack(){
     ]
 
     return (
-        <section className="flex flex-col w-full max-h-full flex-1">
+        <section className="flex flex-col w-full max-h-full flex-1 overflow-y-auto">
           <div className="flex flex-col justify-center items-start w-full">
-              <h1>{t('stack')}</h1>
-              <p>{t('stackdescription')}</p>
+              <h3 className="font-bold text-indigo-500">{t('stack')}</h3>
+              <p className="text-slate-500">{t('stackdescription')}</p>
           </div>
-          <div className="flex justify-center items-center grow flex-wrap gap-10 pt-16 max-h-full overflow-y-auto">
+          <div className="flex justify-center items-center grow flex-wrap gap-5 pt-16 max-h-full overflow-y-auto">
             {
               techStack && techStack.map((tech, index) => (
                 <div key={index} className="flex flex-col justify-center items-center gap-2 p-2">
                     <Image
                       src={tech.icon ? tech.icon : `/icons/${tech.iconName}.svg`}
-                      width={80}
-                      height={80}
+                      width={70}
+                      height={70}
                       alt={tech.name}
                     />
-                  <p>{tech.name}</p>
+                  <p className="text-slate-500">{tech.name}</p>
                 </div>
               ))
             }
