@@ -103,7 +103,7 @@ export default function TechStack() {
               <h3 className="font-bold text-indigo-500">{t('stack')}</h3>
               <p className="text-slate-500">{t('stackdescription')}</p>
           </div>
-          <div className="flex justify-center items-center grow flex-wrap gap-5 pt-16 max-h-full overflow-y-auto">
+          <div className="flex justify-center items-center flex-wrap gap-5 pt-4 max-h-full overflow-y-auto my-auto">
             {
               techStack && techStack.map((tech, index) => (
                 <div key={index} className="flex flex-col justify-center items-center gap-2 p-2">
